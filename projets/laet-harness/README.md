@@ -1,7 +1,7 @@
 # Harness Claude Code de Laetitia
 
 Source unique de la configuration globale de Claude Code. Les skills vivent ailleurs :
-`~/Documents/010-CLAUDE/005-SKILLS` (dépôt `Kawanah/laet-skills`).
+`dossier local` (dépôt `Kawanah/laet-skills`).
 
 | Fichier                 | Lien dans `~/.claude`   | Rôle                                                          |
 | ----------------------- | ----------------------- | ------------------------------------------------------------- |
@@ -120,12 +120,12 @@ Si Claude Code réécrit `settings.json` (changement via l'interface), le lien p
 ## Nouvelle machine
 
 ```bash
-git clone <ce dépôt> ~/Documents/010-CLAUDE/012-Harness
+git clone <ce dépôt> dossier local
 uv tool install jcodemunch-mcp
 claude mcp add -s user jcodemunch -- "$HOME/.local/bin/jcodemunch-mcp" serve
-~/Documents/010-CLAUDE/012-Harness/installer.sh
+dossier local
 ```
 
 Puis `005-SKILLS/lier.sh` pour les skills.
 
-Voir aussi : [ROADMAP.md](ROADMAP.md) (hooks et skills à faire, dans l'ordre).
+Voir aussi : ROADMAP.md (hooks et skills à faire, dans l'ordre).

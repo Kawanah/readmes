@@ -328,8 +328,8 @@ npm run lint
 
 ## Documentation
 
-- [Manuel utilisateur](docs/MANUEL_UTILISATEUR.md) — utilisation du dashboard
-- [Documentation technique](docs/DOCUMENTATION_TECHNIQUE.md) — architecture, API, sécurité
-- [Plan de développement et de test](docs/PLAN_DEVELOPPEMENT_TEST.md)
-- [Guide de lancement rapide](LANCEMENT.md)
+- Manuel utilisateur — utilisation du dashboard
+- Documentation technique — architecture, API, sécurité
+- Plan de développement et de test
+- Guide de lancement rapide
 - API interactive : http://127.0.0.1:8000/docs (backend démarré)

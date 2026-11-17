@@ -9,9 +9,9 @@ son retour, sans intermédiaire.
 
 En ligne : **https://frontnote.kawanah.com** (API + tableau de bord).
 
-> **Vous reprenez ce projet ?** Lisez d'abord [`CLAUDE.md`](CLAUDE.md) :
+> **Vous reprenez ce projet ?** Lisez d'abord `CLAUDE.md` :
 > architecture, commandes, déploiement, décisions déjà tranchées. Le besoin et
-> la feuille de route sont dans [`SPEC.md`](SPEC.md). Le modèle de données suit
+> la feuille de route sont dans `SPEC.md`. Le modèle de données suit
 > le **contrat de corrections** de l'agence (`Contrat-corrections-agents.md`) :
 > le relire avant de toucher aux champs, aux statuts ou aux droits.
 

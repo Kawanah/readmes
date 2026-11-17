@@ -20,12 +20,12 @@ Next.js (App Router, PWA) · Convex (Convex Auth, rate-limiter) · Tailwind 4 ·
 
 | Document                                               | Rôle                                                                                           |
 | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| [docs/cadrage-v1.md](docs/cadrage-v1.md)               | PRD : vision, personas, user stories, parcours, MoSCoW, règles métier, edge cases              |
-| [docs/build-prompt.md](docs/build-prompt.md)           | Core flow, états importants, build prompt du premier lot                                       |
-| [docs/architecture.md](docs/architecture.md)           | Modules, `src/domain/` pur + Convex adapter, 3NF, multi-foyer, validation, état, harnais React |
-| [docs/regles-convex.md](docs/regles-convex.md)         | Règles Convex du projet (foyer = frontière, validateurs, nommage)                              |
-| [docs/plan-construction.md](docs/plan-construction.md) | Lot 0 (socle), lots 1–3, rituels, checkpoints                                                  |
-| [docs/maquettes/](docs/maquettes/README.md)            | 7 écrans mobiles, style verre · végétal · minimal · bleu                                       |
+| docs/cadrage-v1.md               | PRD : vision, personas, user stories, parcours, MoSCoW, règles métier, edge cases              |
+| docs/build-prompt.md           | Core flow, états importants, build prompt du premier lot                                       |
+| docs/architecture.md           | Modules, `src/domain/` pur + Convex adapter, 3NF, multi-foyer, validation, état, harnais React |
+| docs/regles-convex.md         | Règles Convex du projet (foyer = frontière, validateurs, nommage)                              |
+| docs/plan-construction.md | Lot 0 (socle), lots 1–3, rituels, checkpoints                                                  |
+| docs/maquettes/            | 7 écrans mobiles, style verre · végétal · minimal · bleu                                       |
 
 `CLAUDE.md` contient les règles de travail pour Claude Code.
 

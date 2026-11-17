@@ -29,8 +29,8 @@ Creer le dossier `<skill>/SKILL.md`, lancer `./lier.sh`, puis `./publier.sh`.
 ## Nouvelle machine
 
 ```bash
-git clone git@github.com:Kawanah/laet-skills.git ~/Documents/010-CLAUDE/005-SKILLS
-cd ~/Documents/010-CLAUDE/005-SKILLS && ./lier.sh
+git clone git@github.com:Kawanah/laet-skills.git dossier local
+cd dossier local && ./lier.sh
 ```
 
 Puis reinstaller les skills tiers listes plus bas.

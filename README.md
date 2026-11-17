@@ -1,8 +1,25 @@
-# Mes projets
+# Laetitia Martin — Projets & méthode
 
-Les README de mes projets réunis en un seul endroit. Le code reste dans chaque dépôt ; ici, seulement la doc.
+AI Product Builder & AI Product Designer · Formatrice IA & design produit
+Co-fondatrice de [Kawanah Tech & AI Studio](https://www.kawanah.com)
 
-_Généré par `sync.sh` à partir de `projets.tsv`. Ne pas éditer à la main._
+Je conçois et je construis des applications web, des sites et des agents IA en pilotant le développement avec Claude Code : je cadre le produit, je décide de l'architecture, l'IA exécute sous des règles vérifiées par des outils.
+
+J'enseigne cette méthode en école du numérique (Bachelor, Master) et en formation professionnelle : prototypage assisté par IA, design produit, conception d'agents IA.
+
+Ce dépôt réunit la documentation de mes projets. Le code reste privé ; les README décrivent le problème résolu, la stack, l'architecture et les choix faits.
+
+## À voir en priorité
+
+- **[Kit étudiant — IA Product Design Sprint](projets/kit-etudiants-ia-product-design/README.md)** : le matériel d'un sprint de 3 jours donné à Digital Campus.
+- **[FrontNote](projets/frontnote/README.md)** : l'outil que j'ai créé pour que les retours clients soient lus et corrigés directement par Claude Code. C'est ma méthode de travail transformée en outil.
+- **[Vox Populi](projets/voxpopuli/README.md)** : une application d'information prototypée en hackathon.
+- **[CoReSS IDF Centre-Essonne](projets/coress/README.md)** : un site institutionnel en production (Astro + WordPress headless).
+- **[Mes skills Claude Code](projets/laet-skills/README.md)** : les règles que je donne à l'IA, versionnées comme du code.
+
+## Formation
+
+- **[Kit etudiant - IA Product Design Sprint](projets/kit-etudiants-ia-product-design/README.md)** — Formation de Laetitia - Digital Campus
 
 ## Applications
 
@@ -19,6 +36,12 @@ _Généré par `sync.sh` à partir de `projets.tsv`. Ne pas éditer à la main._
 - **[Agent Éditorial](projets/agent-editorial/README.md)** — Agent autonome qui gère la présence réseaux sociaux de solopreneurs, depuis la collecte du besoin jusqu'à la publication validée.
 - **[🤖 LinkedIn Auto-poster — Kawanah](projets/linkedin-automation/README.md)** — Publie automatiquement des posts LinkedIn générés par Claude, selon un planning hebdomadaire.
 
+## Sites clients
+
+- **[CoReSS IDF Centre-Essonne - site public](projets/coress/README.md)** — Portail du Comité régional de coordination de la santé sexuelle Île-de-France Centre-Essonne. Au-delà des pages de présentation, le site porte trois outils de recherche : un…
+- **[La maison bleue Djerba](projets/maison-bleue-djerba/README.md)** — Landing page premium pour la location saisonnière d'une maison à Djerba (Tunisie), avec calendrier de disponibilités, tarification serveur, demande de réservation et espace…
+- **[Monstade - site sport santé en entreprise](projets/monstade/README.md)** — Site institutionnel de Monstade, qui conçoit des programmes de sport santé pour les entreprises et les acteurs de l'immobilier. Le site présente la vision, l'approche, les…
+
 ## Outillage Kawanah
 
 - **[@kawanah/ui](projets/kawanah-ui/README.md)** — Bibliotheque de composants Astro reutilisables de Kawanah Studio.
@@ -28,14 +51,6 @@ _Généré par `sync.sh` à partir de `projets.tsv`. Ne pas éditer à la main._
 ## Outillage Claude Code
 
 - **[Skills de Laetitia - source unique](projets/laet-skills/README.md)** — Ce depot est le seul endroit ou l'on modifie un skill. Toutes les interfaces lisent d'ici, directement ou par import.
-- **[Harness Claude Code de Laetitia](projets/laet-harness/README.md)** — Source unique de la configuration globale de Claude Code. Les skills vivent ailleurs : `~/Documents/010-CLAUDE/005-SKILLS` (dépôt `Kawanah/laet-skills`).
+- **[Harness Claude Code de Laetitia](projets/laet-harness/README.md)** — Source unique de la configuration globale de Claude Code. Les skills vivent ailleurs : `dossier local` (dépôt `Kawanah/laet-skills`).
 
-## Formation
-
-- **[Kit etudiant - IA Product Design Sprint](projets/kit-etudiants-ia-product-design/README.md)** — Formation de Laetitia - Digital Campus
-
-## Sites clients
-
-- **[CoReSS IDF Centre-Essonne - site public](projets/coress/README.md)** — Portail du Comité régional de coordination de la santé sexuelle Île-de-France Centre-Essonne. Au-delà des pages de présentation, le site porte trois outils de recherche : un…
-- **[La maison bleue Djerba](projets/maison-bleue-djerba/README.md)** — Landing page premium pour la location saisonnière d'une maison à Djerba (Tunisie), avec calendrier de disponibilités, tarification serveur, demande de réservation et espace…
-- **[Monstade - site sport santé en entreprise](projets/monstade/README.md)** — Site institutionnel de Monstade, qui conçoit des programmes de sport santé pour les entreprises et les acteurs de l'immobilier. Le site présente la vision, l'approche, les…
+<!-- Généré par sync.sh à partir de intro.md et projets.tsv. Ne pas éditer à la main. -->

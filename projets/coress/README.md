@@ -9,12 +9,6 @@ rendue au build** - filtrage côté client, aucune requête serveur, aucune base
 de données interrogée à la visite. Le site est compilé en pages statiques
 depuis un WordPress headless.
 
-> **Vous reprenez ce site ?** Commencez par
-> [`docs/reprise-developpeur.md`](docs/reprise-developpeur.md) : ordre de
-> lecture, carte des fichiers, accès, chaîne de publication, recettes, état
-> du projet. Le support de formation de la cliente est dans
-> [`docs/prise-en-main-client.md`](docs/prise-en-main-client.md).
-
 ---
 
 ## Le problème résolu

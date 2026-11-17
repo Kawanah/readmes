@@ -14,7 +14,7 @@ du dépôt CoReSS ; ici, c'est sa version outillée.
 Dans Claude Code, à la racine du projet client :
 
 ```
-/plugin marketplace add ~/Documents/011-KAWANAH-STUDIO/kawanah-claude-kit
+/plugin marketplace add dossier local
 /plugin install kawanah-wp-headless@kawanah
 ```
 

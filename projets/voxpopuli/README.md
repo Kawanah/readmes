@@ -50,7 +50,7 @@ npx convex dev
 Les polices sont une pile système (`ui-sans-serif, system-ui, …`) : aucun appel réseau au build.
 
 Le cadrage complet (principes, thèmes, planning, définition de terminé) est dans
-[CLAUDE.md](CLAUDE.md).
+CLAUDE.md.
 
 ## Licence
 

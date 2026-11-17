@@ -1,4 +1,5 @@
 # slug	chemin (relatif à ~/Documents)	catégorie
+kit-etudiants-ia-product-design	014-Formation /001-Formation IA product Designer /02 - Kit etudiants	Formation
 voxpopuli	010-CLAUDE/002-APPLICATIONS/VoxPopuli	Applications
 garden	010-CLAUDE/002-APPLICATIONS/GARDEN PWA	Applications
 lecellier	010-CLAUDE/002-APPLICATIONS/lecellier	Applications
@@ -8,12 +9,11 @@ classification-leads	010-CLAUDE/002-APPLICATIONS/SCRAP	Agents IA
 agent-prospection	010-CLAUDE/006-EXPERIMENTS/Agent	Agents IA
 agent-editorial	010-CLAUDE/007-PROJETS/Agent communication/agent-editorial	Agents IA
 linkedin-automation	010-CLAUDE/007-PROJETS/Communicaiton/Communication RS/linkedin-automation	Agents IA
+coress	011-KAWANAH-STUDIO/002-CLIENTS-SITES/CORESS/Site internet	Sites clients
+maison-bleue-djerba	011-KAWANAH-STUDIO/002-CLIENTS-SITES/La maison bleu Djerba	Sites clients
+monstade	./manuel/monstade.md	Sites clients
 kawanah-ui	011-KAWANAH-STUDIO/kawanah-ui	Outillage Kawanah
 kawanah-qualite	011-KAWANAH-STUDIO/kawanah-qualite	Outillage Kawanah
 kawanah-claude-kit	011-KAWANAH-STUDIO/kawanah-claude-kit	Outillage Kawanah
 laet-skills	010-CLAUDE/005-SKILLS	Outillage Claude Code
 laet-harness	010-CLAUDE/012-Harness	Outillage Claude Code
-kit-etudiants-ia-product-design	014-Formation /001-Formation IA product Designer /02 - Kit etudiants	Formation
-coress	011-KAWANAH-STUDIO/002-CLIENTS-SITES/CORESS/Site internet	Sites clients
-maison-bleue-djerba	011-KAWANAH-STUDIO/002-CLIENTS-SITES/La maison bleu Djerba	Sites clients
-monstade	./manuel/monstade.md	Sites clients

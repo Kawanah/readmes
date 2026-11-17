@@ -1,9 +1,63 @@
 #!/usr/bin/env bash
-# Recopie les README listés dans projets.tsv et régénère l'index README.md.
+# Recopie les README listés dans projets.tsv, les nettoie pour une lecture publique
+# et régénère l'index README.md (intro.md + liste par catégorie, dans l'ordre du fichier).
 # Usage : ./sync.sh   (puis relire le diff avant de commit)
 set -euo pipefail
 cd "$(dirname "$0")"
 SRC="${DOCS_ROOT:-$HOME/Documents}"
+
+# Traitement Markdown commun, en perl (fourni avec macOS) : un fichier par appel.
+#   MODE=nettoyer  réécrit le fichier : citations « Vous reprenez ce site », chemins locaux, liens relatifs cassés
+#   MODE=controler n'écrit rien, liste ce qui reste à corriger (liens relatifs cassés, chemins locaux)
+# Les blocs de code (```) ne sont pas touchés par le traitement des liens.
+# shellcheck disable=SC2016
+PERL_MD='
+use strict; use warnings;
+my ($fichier) = @ARGV;
+my $dossier = $fichier =~ m{/} ? $fichier =~ s{/[^/]*$}{}r : ".";
+my $mode = $ENV{MODE};
+local $/; open(my $in, "<:raw", $fichier) or die; my $texte = <$in>; close $in;
+
+my $CHEMIN_LOCAL = qr{(?:~/Documents|/Users/[^/\s`]+)(?:/[^\s`)\]\x27"<>]*)?};
+
+sub cible_cassee {
+  my ($cible) = @_;
+  return 0 if $cible =~ m{^(?:[a-z][a-z0-9+.-]*:|#|//)}i;   # http(s), mailto, ancre…
+  my $chemin = $cible =~ s/[#?].*$//r;
+  $chemin =~ s/%([0-9A-Fa-f]{2})/chr(hex($1))/ge;
+  return 0 if $chemin eq "";
+  return !-e "$dossier/$chemin";
+}
+
+my $LIEN = qr{(!?)\[((?:[^\[\]]|\[[^\]]*\])*)\]\(\s*<?([^)\s>]+)>?(?:\s+"[^"]*")?\s*\)};
+
+if ($mode eq "nettoyer") {
+  # 1. Citations qui s adressent à un développeur qui reprend le projet.
+  $texte =~ s{(?:^>[^\n]*\n?)+}{ my $b = $&; $b =~ /Vous reprenez ce site/ ? "" : $b }gme;
+  $texte =~ s/\n{3,}/\n\n/g;
+  # 2. Chemins locaux.
+  $texte =~ s/$CHEMIN_LOCAL/dossier local/g;
+  # 3. Liens relatifs cassés -> leur texte seul, hors blocs de code.
+  my $dans_code = 0;
+  $texte = join "", map {
+    $dans_code = !$dans_code if /^\s*(```|~~~)/;
+    my $l = $_;
+    $l =~ s{$LIEN}{ cible_cassee($3) ? $2 : $& }ge unless $dans_code;
+    $l;
+  } split /(?<=\n)/, $texte;
+  open(my $out, ">:raw", $fichier) or die; print $out $texte; close $out;
+} else {
+  my ($n, $dans_code) = (0, 0);
+  for my $l (split /\n/, $texte) {
+    $n++;
+    $dans_code = !$dans_code if $l =~ /^\s*(```|~~~)/;
+    unless ($dans_code) {
+      while ($l =~ /$LIEN/g) { print "$fichier:$n: lien cassé -> $3\n" if cible_cassee($3) }
+    }
+    print "$fichier:$n: chemin local -> $&\n" while $l =~ /$CHEMIN_LOCAL/g;
+  }
+}
+'
 
 rm -rf projets && mkdir projets
 index_body=""
@@ -37,6 +91,8 @@ while IFS=$'\t' read -r slug path cat; do
     continue
   fi
 
+  MODE=nettoyer perl -e "$PERL_MD" "$readme"
+
   title=$(grep -m1 -E '^#[[:space:]]' "$readme" | sed -E 's/^#+[[:space:]]*//')
   # 1er paragraphe de texte après le titre, sur une ligne, sans gras, ≤ 180 car.
   desc=$(awk 'NR>1 && !started && /^[^#<>|`*!\-[:space:]]/ {started=1}
@@ -53,12 +109,18 @@ while IFS=$'\t' read -r slug path cat; do
 done < projets.tsv
 
 {
-  echo "# Mes projets"
-  echo
-  echo "Les README de mes projets réunis en un seul endroit. Le code reste dans chaque dépôt ; ici, seulement la doc."
-  echo
-  echo "_Généré par \`sync.sh\` à partir de \`projets.tsv\`. Ne pas éditer à la main._"
+  cat intro.md
   printf '%s' "$index_body"
+  echo
+  echo "<!-- Généré par sync.sh à partir de intro.md et projets.tsv. Ne pas éditer à la main. -->"
 } > README.md
 
-echo "Index régénéré. Vérifier : git diff, puis ./check-secrets.sh"
+# Contrôle final : rien ne doit rester cassé ni pointer vers un dossier local.
+problemes=$(for f in README.md projets/*/README.md; do MODE=controler perl -e "$PERL_MD" "$f"; done)
+if [[ -n "$problemes" ]]; then
+  echo "❌ À corriger avant de publier :" >&2
+  echo "$problemes" >&2
+  exit 1
+fi
+
+echo "Index régénéré, liens et chemins vérifiés. Ensuite : ./check-secrets.sh puis git diff."
