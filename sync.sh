@@ -12,13 +12,26 @@ current_cat=""
 while IFS=$'\t' read -r slug path cat; do
   [[ -z "$slug" || "$slug" == \#* ]] && continue
   dir="$SRC/$path"
-  readme=$(find "$dir" -maxdepth 1 -iname 'README*.md' ! -iname '*backup*' | sort | head -1)
-  if [[ -z "$readme" ]]; then
+  mkdir -p "projets/$slug"
+  readme="projets/$slug/README.md"
+  # Dépôt git avec remote : version de la branche par défaut sur GitHub (le dossier local peut être en retard).
+  if git -C "$dir" remote get-url origin >/dev/null 2>&1 && git -C "$dir" fetch -q origin 2>/dev/null; then
+    branch=$(git -C "$dir" ls-remote --symref origin HEAD | awk '/^ref:/ {sub("refs/heads/","",$2); print $2}')
+    prefix=$(git -C "$dir" rev-parse --show-prefix)
+    name=$(git -C "$dir" ls-tree --name-only "origin/$branch" -- "${prefix:-.}" | sed "s#^$prefix##" \
+           | grep -iE '^readme[^/]*\.md$' | grep -vi backup | sort | head -1)
+    [[ -n "$name" ]] && git -C "$dir" show "origin/$branch:$prefix$name" > "$readme"
+    src="origin/$branch"
+  else
+    name=$(find "$dir" -maxdepth 1 -iname 'README*.md' ! -iname '*backup*' -exec basename {} \; | sort | head -1)
+    [[ -n "$name" ]] && cp "$dir/$name" "$readme"
+    src="local"
+  fi
+  if [[ ! -s "$readme" ]]; then
     echo "⚠️  pas de README : $path" >&2
+    rm -rf "projets/$slug"
     continue
   fi
-  mkdir -p "projets/$slug"
-  cp "$readme" "projets/$slug/README.md"
 
   title=$(grep -m1 -E '^#[[:space:]]' "$readme" | sed -E 's/^#+[[:space:]]*//')
   # 1er paragraphe de texte après le titre, sur une ligne, sans gras, ≤ 180 car.
@@ -32,7 +45,7 @@ while IFS=$'\t' read -r slug path cat; do
     current_cat="$cat"
   fi
   index_body+="- **[${title:-$slug}](projets/$slug/README.md)**${desc:+ — $desc}"$'\n'
-  echo "✓ $slug"
+  echo "✓ $slug ($src)"
 done < projets.tsv
 
 {

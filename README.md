@@ -15,7 +15,7 @@ _Généré par `sync.sh` à partir de `projets.tsv`. Ne pas éditer à la main._
 ## Agents IA
 
 - **[🏨 Agent de Classification des Leads Touristiques](projets/classification-leads/README.md)** — Agent open-source pour collecter, scorer et classer les établissements touristiques en France (hôtels, gîtes, chambres d'hôtes).
-- **[Agent de Prospection — Kawanah Tourisme](projets/agent-prospection/README.md)** — Application web de prospection B2B pour le secteur de l'hospitalité (hôtels, campings, gîtes, prestataires d'activités).
+- **[Agent de Prospection Automatisé — Kawanah Tourisme](projets/agent-prospection/README.md)** — Plateforme de prospection B2B pour le secteur de l'hospitalité : elle transforme une simple liste de noms d'établissements en campagnes d'emails personnalisés, argumentés à…
 - **[Agent Éditorial](projets/agent-editorial/README.md)** — Agent autonome qui gère la présence réseaux sociaux de solopreneurs, depuis la collecte du besoin jusqu'à la publication validée.
 - **[🤖 LinkedIn Auto-poster — Kawanah](projets/linkedin-automation/README.md)** — Publie automatiquement des posts LinkedIn générés par Claude, selon un planning hebdomadaire.
 
@@ -33,3 +33,8 @@ _Généré par `sync.sh` à partir de `projets.tsv`. Ne pas éditer à la main._
 ## Formation
 
 - **[Kit etudiant - IA Product Design Sprint](projets/kit-etudiants-ia-product-design/README.md)** — Formation de Laetitia - Digital Campus
+
+## Sites clients
+
+- **[CoReSS IDF Centre-Essonne - site public](projets/coress/README.md)** — Portail du Comité régional de coordination de la santé sexuelle Île-de-France Centre-Essonne. Au-delà des pages de présentation, le site porte trois outils de recherche : un…
+- **[La maison bleue Djerba](projets/maison-bleue-djerba/README.md)** — Landing page premium pour la location saisonnière d'une maison à Djerba (Tunisie), avec calendrier de disponibilités, tarification serveur, demande de réservation et espace…
