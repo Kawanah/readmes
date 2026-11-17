@@ -1,0 +1,4 @@
+.DS_Store
+.env
+.env.*
+.claude/last-session.md
