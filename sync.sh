@@ -14,8 +14,12 @@ while IFS=$'\t' read -r slug path cat; do
   dir="$SRC/$path"
   mkdir -p "projets/$slug"
   readme="projets/$slug/README.md"
+  # Chemin en ./ : README rédigé dans ce dépôt (projet au code privé, voir manuel/).
+  if [[ "$path" == ./* ]]; then
+    cp "$path" "$readme"
+    src="manuel"
   # Dépôt git avec remote : version de la branche par défaut sur GitHub (le dossier local peut être en retard).
-  if git -C "$dir" remote get-url origin >/dev/null 2>&1 && git -C "$dir" fetch -q origin 2>/dev/null; then
+  elif git -C "$dir" remote get-url origin >/dev/null 2>&1 && git -C "$dir" fetch -q origin 2>/dev/null; then
     branch=$(git -C "$dir" ls-remote --symref origin HEAD | awk '/^ref:/ {sub("refs/heads/","",$2); print $2}')
     prefix=$(git -C "$dir" rev-parse --show-prefix)
     name=$(git -C "$dir" ls-tree --name-only "origin/$branch" -- "${prefix:-.}" | sed "s#^$prefix##" \
